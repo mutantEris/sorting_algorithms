@@ -19,10 +19,10 @@ void bubble_sort(int *array, size_t size)
 		swapped = 1;
 		for (i = 1; i < size; i++)
 		{
-			if (array[i -1] > array[i])
+			if (array[i - 1] > array[i])
 			{
 				tmp = array[i];
-				array[i] = array [i - 1];
+				array[i] = array[i - 1];
 				array[i - 1] = tmp;
 				print_array(array, size);
 				swapped = 0;
