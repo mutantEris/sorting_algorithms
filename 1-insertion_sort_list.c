@@ -7,26 +7,29 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp, *next, *current;
+	listint_t *tmp = NULL, *next = NULL, *current = NULL;
+	int i = 0;
 
-	tmp = malloc(sizeof(listint_t));
 	current = *list;
-/**
- *	current = current->next;
- */
-	printf("%d\n", current->n);
 	next = current->next;
-	printf("%d\n", next->n);
-	while (next->n > current->n)
+	while (next->next != NULL)
 	{
-		while (current->next != NULL)
+		tmp = malloc(sizeof(listint_t));
+		printf("current node %d\n", current->n);
+		printf("next node %d\n", next->n);
+		while (current->n < next->n)
 		{
 			tmp->n = current->n;
 			current->n = next->n;
 			next->n = tmp->n;
+			printf("iteration: %d. tmp->n = %d\n", i, tmp->n);
+			printf("current->n = %d\n", current->n);
+			printf("next->n = %d\n", next->n);
 			next = next->next;
+			i++;
 		}
 		current = current->next;
 		print_list(*list);
+		free(tmp);
 	}
 }
