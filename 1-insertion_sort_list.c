@@ -8,28 +8,42 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *tmp = NULL, *next = NULL, *current = NULL;
-	int i = 0;
 
 	current = *list;
-	next = current->next;
-	while (next->next != NULL)
+	tmp = current->next;
+	while(current->next != NULL)
 	{
-		tmp = malloc(sizeof(listint_t));
-		printf("current node %d\n", current->n);
-		printf("next node %d\n", next->n);
-		while (current->n < next->n)
+		if (current->n < tmp->n)
 		{
-			tmp->n = current->n;
-			current->n = next->n;
-			next->n = tmp->n;
-			printf("iteration: %d. tmp->n = %d\n", i, tmp->n);
-			printf("current->n = %d\n", current->n);
-			printf("next->n = %d\n", next->n);
-			next = next->next;
-			i++;
+			push(tmp, next, current, list);
+			print_list(*list);
+			current = *list;
 		}
-		current = current->next;
-		print_list(*list);
-		free(tmp);
 	}
+}
+
+/**
+ * push - reorders list
+ * @tmp: temp
+ * @next: next node
+ * @current: current node
+ * @list: the list
+ */
+
+void push(listint_t *tmp, listint_t *next, listint_t *current, listint_t **list)
+{
+	if(list != NULL)
+	{
+		if ((tmp != NULL) && (current != NULL))
+		{
+			next->prev = current->prev;
+			current->prev = tmp->prev;
+			tmp->prev->next = current;
+			tmp->prev = current;
+			current->next = tmp;
+			tmp->next = next;
+		}
+	}
+
+
 }
