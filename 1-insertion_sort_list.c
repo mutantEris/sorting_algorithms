@@ -8,14 +8,15 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current = NULL;
+
 	current = *list;
-	while(current->next != NULL)
+	while (current != NULL)
 	{
 		if (current->prev != NULL && current->n < current->prev->n)
 		{
-			push(current->prev, current->next, current, list);
+			list = push(current->prev,
+				    current->next, current, list);
 			print_list(*list);
-			//current = *list;
 		}
 		else
 		{
@@ -30,22 +31,34 @@ void insertion_sort_list(listint_t **list)
  * @next: next node
  * @current: current node
  * @list: the list
+ * Return: list
  */
 
-void push(listint_t *tmp, listint_t *next, listint_t *current, listint_t **list)
+listint_t **push(listint_t *tmp,
+	       listint_t *next, listint_t *current, listint_t **list)
 {
-	if(list != NULL)
+	if (list != NULL)
 	{
 		if ((tmp != NULL) && (current != NULL))
 		{
-			next->prev = current->prev;
+			if (next != NULL)
+			{
+				next->prev = current->prev;
+			}
 			current->prev = tmp->prev;
-			tmp->prev->next = current;
+			if (tmp->prev != NULL)
+			{
+				tmp->prev->next = current;
+			}
 			tmp->prev = current;
 			current->next = tmp;
 			tmp->next = next;
+			if (current->prev == NULL)
+			{
+				*list = current;
+			}
+			return (list);
 		}
 	}
-
-
+	return (list);
 }
