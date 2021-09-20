@@ -7,17 +7,19 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp = NULL, *next = NULL, *current = NULL;
-
+	listint_t *current = NULL;
 	current = *list;
-	tmp = current->next;
 	while(current->next != NULL)
 	{
-		if (current->n < tmp->n)
+		if (current->prev != NULL && current->n < current->prev->n)
 		{
-			push(tmp, next, current, list);
+			push(current->prev, current->next, current, list);
 			print_list(*list);
-			current = *list;
+			//current = *list;
+		}
+		else
+		{
+			current = current->next;
 		}
 	}
 }
