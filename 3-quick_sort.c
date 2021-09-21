@@ -1,6 +1,7 @@
 #include "sort.h"
 int partition(int *array, int low_index, int high_index);
-void quick_sort_recursive(int *array, int start_index, int end_index, size_t size);
+void quick_sort_recursive(int *array, int start_index,
+			int end_index, size_t size);
 /**
  * quick_sort - quickly sorts
  * @array: the array
@@ -18,6 +19,14 @@ void quick_sort(int *array, size_t size)
 	quick_sort_recursive(array, partition_index + 1, high_index, size);
 }
 
+/**
+ * swap_values - does the swap
+ * @num1: first number
+ * @num2: 2nd number
+ *
+ * Return: void
+ */
+
 void swap_values(int *num1, int *num2)
 {
 	int tmp;
@@ -33,7 +42,6 @@ void swap_values(int *num1, int *num2)
  * @array: array to sort
  * @low_index: first index of array
  * @high_index: last index of array
- * @size: number of elements in array
  *
  * Return: partition location
  */
@@ -62,10 +70,12 @@ int partition(int *array, int low_index, int high_index)
  * @array: array to sort
  * @start_index: where it starts each call
  * @end_index: where each part ends each call
+ * @size: size of array
  *
  * Return: void
  */
-void quick_sort_recursive(int *array, int start_index, int end_index, size_t size)
+void quick_sort_recursive(int *array, int start_index,
+				int end_index, size_t size)
 {
 	start_index = partition(array, end_index, start_index);
 	print_array(array, size);
