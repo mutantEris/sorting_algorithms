@@ -55,9 +55,10 @@ print_array(&array[l], n1 + n2);
 }
 
 /**
- * merge_sort - merge sorts array
+ * mergeSort - merge sorts array
  * @array: array being sorted
- * @size: number of elements in array
+ * @l: left sort array
+ * @r: right sort array
  */
 
 void mergeSort(int *array, int l, int r)
