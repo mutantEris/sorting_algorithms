@@ -20,13 +20,13 @@ int L[1024], R[1024];
 printf("Merging...\n");
 for (x = 0; x < n1; x++)
 {
-    L[x] = array[l + x];
+L[x] = array[l + x];
 }
 printf("[left]: ");
 print_array(L, n1);
 for (y = 0; y < n2; y++)
 {
-    R[y] = array[m + 1 + y];
+R[y] = array[m + 1 + y];
 }
 printf("[right]: ");
 print_array(R, n2);
@@ -36,29 +36,29 @@ y = 0;
 g = l;
 while (x < n1 && y < n2)
 {
-    if (L[x] <= R[y])
-    {
-        array[g] = L[x];
-        x++;
-    }
-    else
-    {
-        array[g] = R[y];
-        y++;
-    }
-    g++;
+if (L[x] <= R[y])
+{
+array[g] = L[x];
+x++;
+}
+else
+{
+array[g] = R[y];
+y++;
+}
+g++;
 }
 while (x < n1)
 {
-    array[g] = L[x];
-    x++;
-    g++;
+array[g] = L[x];
+x++;
+g++;
 }
 while (y < n2)
 {
-    array[g] = R[y];
-    y++;
-    g++;
+array[g] = R[y];
+y++;
+g++;
 }
 printf("[Done]: ");
 print_array(&array[l], n1 + n2);
@@ -72,15 +72,14 @@ print_array(&array[l], n1 + n2);
 
 void mergeSort(int *array, int li, int ri)
 {
-	int mid = (ri + li - 1) / 2;
+int mid = (ri + li - 1) / 2;
 
-	if (li < ri)
-	{
-		mergeSort(array, li, mid);
-		mergeSort(array, mid + 1, ri);
-
-		merge(array, li, mid, ri);
-	}
+if (li < ri)
+{
+mergeSort(array, li, mid);
+mergeSort(array, mid + 1, ri);
+merge(array, li, mid, ri);
+}
 }
 
 /**
@@ -91,6 +90,6 @@ void mergeSort(int *array, int li, int ri)
 
 void merge_sort(int *array, size_t size)
 {
-	if (size > 1)
-		mergeSort(array, 0, size - 1);
+if (size > 1)
+mergeSort(array, 0, size - 1);
 }
