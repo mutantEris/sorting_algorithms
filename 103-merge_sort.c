@@ -15,7 +15,7 @@ void merge(int array[], int l, int m, int r)
     int x, y, g;
     int n1 = m - l + 1;
     int n2 = r - m;
-    int L[n1], R[n2];
+    int L[1024], R[1024];
   
     printf("Merging...\n");
     for (x = 0; x < n1; x++)
