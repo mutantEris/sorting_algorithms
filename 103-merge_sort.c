@@ -60,23 +60,23 @@ print_array(&array[l], n1 + n2);
  * @size: number of elements in array
  */
 
-void mergeSort(int *array, int li, int ri)
+void mergeSort(int *array, int l, int r)
 {
-	int mid = (ri + li - 1) / 2;
+	int mid = (r + l - 1) / 2;
 
-	if (li < ri)
+	if (l < r)
 	{
-		mergeSort(array, li, mid);
-		mergeSort(array, mid + 1, ri);
+		mergeSort(array, l, mid);
+		mergeSort(array, mid + 1, r);
 
-		merge(array, li, mid, ri);
+		merge(array, l, mid, r);
 	}
 }
 
 /**
- * merge_sort - performs a merge sort on an array
+ * merge_sort - merge
  * @array: the array to sort
- * @size: number of elements in the array
+ * @size: number of elements in array
  */
 
 void merge_sort(int *array, size_t size)
