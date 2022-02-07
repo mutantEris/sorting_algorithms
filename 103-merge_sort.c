@@ -52,13 +52,13 @@ while (x < n1)
 {
 array[g] = L[x];
 x++;
-g++;
+    g++;
 }
 while (y < n2)
 {
-array[g] = R[y];
-y++;
-g++;
+    array[g] = R[y];
+    y++;
+    g++;
 }
 printf("[Done]: ");
 print_array(&array[l], n1 + n2);
@@ -72,14 +72,15 @@ print_array(&array[l], n1 + n2);
 
 void mergeSort(int *array, int li, int ri)
 {
-int mid = (ri + li - 1) / 2;
+	int mid = (ri + li - 1) / 2;
 
-if (li < ri)
-{
-mergeSort(array, li, mid);
-mergeSort(array, mid + 1, ri);
-merge(array, li, mid, ri);
-}
+	if (li < ri)
+	{
+		mergeSort(array, li, mid);
+		mergeSort(array, mid + 1, ri);
+
+		merge(array, li, mid, ri);
+	}
 }
 
 /**
@@ -90,6 +91,6 @@ merge(array, li, mid, ri);
 
 void merge_sort(int *array, size_t size)
 {
-if (size > 1)
-mergeSort(array, 0, size - 1);
+	if (size > 1)
+		mergeSort(array, 0, size - 1);
 }
