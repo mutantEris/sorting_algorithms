@@ -42,13 +42,13 @@ while (x < n1)
 {
 array[g] = L[x];
 x++;
-    g++;
+g++;
 }
 while (y < n2)
 {
-    array[g] = R[y];
-    y++;
-    g++;
+array[g] = R[y];
+y++;
+g++;
 }
 printf("[Done]: ");
 print_array(&array[l], n1 + n2);
