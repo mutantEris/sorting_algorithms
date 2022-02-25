@@ -35,5 +35,6 @@ listint_t **push(listint_t *tmp,
 void swap_values(int *num1, int *num2);
 void merge_sort(int *array, size_t size);
 void downsift(int *array, int start, int stop, size_t size);
+void heap_sort(int *array, size_t size);
 
 #endif /*SORT_H*/
