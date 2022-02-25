@@ -41,8 +41,8 @@ void downsift(int *array, int start, int stop, size_t size)
 void heap_sort(int *array, size_t size)
 {
 	int x;
-    int wumbo;
-    int s = size;
+	int wumbo;
+	int s = size;
 
 	if (!array || size < 2)
 		return;
