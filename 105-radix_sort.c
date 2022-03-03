@@ -3,12 +3,13 @@
  * countingSort - sort countin'
  * @size: size
  * @wumbus: current position
+ * @array: the array
  */
 void countingSort(int *array, int size, int wumbus)
 {
 	int output[1024];
 	int g;
-    int counter[10] = { 0 };
+	int counter[10] = { 0 };
 
 	for (g = 0; g < size; g++)
 		counter[(array[g] / wumbus) % 10]++;
@@ -30,8 +31,8 @@ void countingSort(int *array, int size, int wumbus)
 void radix_sort(int *array, size_t size)
 {
 	int wumbus;
-    int max;
-    int g;
+	int max;
+	int g;
 
 	if (!array || size < 2)
 		return;
